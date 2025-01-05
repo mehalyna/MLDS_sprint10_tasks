@@ -14,10 +14,7 @@ def target_encode_smoothing(df, column, target, k):
     Returns:
     pd.DataFrame: DataFrame with an additional encoded column.
     """
-    global_mean = df[target].mean()
-    agg = df.groupby(column)[target].agg(['mean', 'count'])
-    agg['smoothing'] = (agg['count'] * agg['mean'] + k * global_mean) / (agg['count'] + k)
-    df[column + '_encoded'] = df[column].map(agg['smoothing'])
+    
     return df
 
 
