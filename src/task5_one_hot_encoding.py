@@ -13,9 +13,7 @@ def group_rare_categories(df, column, threshold):
     Returns:
     pd.DataFrame: DataFrame with rare categories grouped as 'Other'.
     """
-    value_counts = df[column].value_counts()
-    rare_categories = value_counts[value_counts < threshold].index
-    df[column] = df[column].apply(lambda x: 'Other' if x in rare_categories else x)
+    
     return df
 
 
@@ -30,7 +28,7 @@ def one_hot_encode(df, column):
     Returns:
     pd.DataFrame: DataFrame with one-hot encoded columns.
     """
-    return pd.get_dummies(df, columns=[column])
+    return None
 
 
 # Example data
